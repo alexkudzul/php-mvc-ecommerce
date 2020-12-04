@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+
+#Activar rewrite
+RewriteEngine on
+ErrorDocument 404 http://php-mvc-ecommerce.test/error/
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^(.*)/(.*) index.php?controller=$1&action=$2
+
+php_flag display_startup_errors off
+php_flag display_errors off
+php_flag html_errors off
+
+</IfModule>
